@@ -1,10 +1,63 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Divisiones | RCO Living</title><link rel="stylesheet" href="sistema.css"></head><body>
-<header class="topbar"><a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living"></a><div class="top-actions"><div class="lang-switch"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div><a class="whatsapp" href="https://wa.me/5581998991468">WhatsApp</a></div></header>
-<main class="shell"><span class="eyebrow">RCO Living</span><h1 id="title">¿Qué servicio necesita?</h1><p class="lead" id="lead">Seleccione una división. El formulario conservará automáticamente su elección.</p><section class="division-grid">
-<article class="division-card"><div class="division-visual"><span>⚡</span><h2 data-es="Mantenimiento" data-pt="Manutenção" data-en="Maintenance">Mantenimiento</h2></div><div class="division-content"><p data-es="Electricidad, plomería, pintura y reparación edilicia." data-pt="Elétrica, hidráulica, pintura e reparos prediais." data-en="Electrical, plumbing, painting and building repairs.">Electricidad, plomería, pintura y reparación edilicia.</p><a class="division-request" data-code="MT" data-name="Mantenimiento">Solicitar servicio →</a></div></article>
-<article class="division-card"><div class="division-visual"><span>🏢</span><h2 data-es="Administración" data-pt="Administração" data-en="Administration">Administración</h2></div><div class="division-content"><p data-es="Gestión integral, coordinación y atención al propietario." data-pt="Gestão integral, coordenação e atendimento ao proprietário." data-en="Full management, coordination and owner support.">Gestión integral, coordinación y atención al propietario.</p><a class="division-request" data-code="AD" data-name="Administración">Solicitar servicio →</a></div></article>
-<article class="division-card"><div class="division-visual"><span>🏖️</span><h2 data-es="Alquileres" data-pt="Aluguéis" data-en="Rentals">Alquileres</h2></div><div class="division-content"><p data-es="Soporte operativo para propiedades de alquiler." data-pt="Suporte operacional para imóveis de aluguel." data-en="Operational support for rental properties.">Soporte operativo para propiedades de alquiler.</p><a class="division-request" data-code="AL" data-name="Alquileres">Solicitar servicio →</a></div></article>
-<article class="division-card"><div class="division-visual"><span>🏗️</span><h2 data-es="Construcción" data-pt="Construção" data-en="Construction">Construcción</h2></div><div class="division-content"><p data-es="Reformas, ampliaciones y obras." data-pt="Reformas, ampliações e obras." data-en="Renovations, extensions and construction.">Reformas, ampliaciones y obras.</p><a class="division-request" data-code="CO" data-name="Construcción">Solicitar servicio →</a></div></article>
-<article class="division-card"><div class="division-visual"><span>🔎</span><h2 data-es="Inspecciones" data-pt="Inspeções" data-en="Inspections">Inspecciones</h2></div><div class="division-content"><p data-es="Revisión técnica, preventiva y de entrega." data-pt="Vistoria técnica, preventiva e de entrega." data-en="Technical, preventive and handover inspections.">Revisión técnica, preventiva y de entrega.</p><a class="division-request" data-code="IN" data-name="Inspecciones">Solicitar servicio →</a></div></article>
-<article class="division-card"><div class="division-visual"><span>🧹</span><h2 data-es="Limpieza" data-pt="Limpeza" data-en="Cleaning">Limpieza</h2></div><div class="division-content"><p data-es="Limpieza profesional y preparación de propiedades." data-pt="Limpeza profissional e preparação de imóveis." data-en="Professional cleaning and property preparation.">Limpieza profesional y preparación de propiedades.</p><a class="division-request" data-code="LP" data-name="Limpieza">Solicitar servicio →</a></div></article>
-</section></main><footer class="footer"><span>RCO Living · División Mantenimiento</span><span>+55 81 99899 1468</span></footer><script src="i18n.js"></script><script>RCO_I18N.init();const q=new URLSearchParams(location.search),property=q.get('propiedad');function applyPage(){const l=localStorage.getItem('rco_lang')||'es',t={es:['¿Qué servicio necesita?','Seleccione una división. El formulario conservará automáticamente su elección.','Solicitar servicio →'],pt:['Qual serviço você precisa?','Selecione uma divisão. O formulário manterá automaticamente sua escolha.','Solicitar serviço →'],en:['What service do you need?','Select a division. The form will automatically keep your choice.','Request service →']}[l];document.getElementById('title').textContent=t[0];document.getElementById('lead').textContent=t[1];document.querySelectorAll('[data-es]').forEach(el=>el.textContent=el.dataset[l]);document.querySelectorAll('.division-request').forEach(a=>a.textContent=t[2]);}applyPage();window.addEventListener('rco-language',applyPage);document.querySelectorAll('.division-request').forEach(a=>{const u=new URL('acceso.html',location.href);u.searchParams.set('division',a.dataset.code);u.searchParams.set('divisionName',a.dataset.name);if(property)u.searchParams.set('propiedad',property);a.href=u.pathname+u.search;});</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05070a">
+<title>RCO Living | Divisiones</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#05070a;min-height:100%;font-family:Arial,sans-serif}
+.page{width:min(100%,1024px);margin:0 auto;position:relative;line-height:0;background:#05070a}
+.page>img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.hotspot{position:absolute;display:block;border-radius:10px;z-index:5;line-height:normal;text-indent:-9999px;overflow:hidden;outline:none}
+.hotspot:focus-visible{box-shadow:0 0 0 4px #fff,0 0 0 8px #f47a20}
+.hotspot:active{background:rgba(244,122,32,.14)}
+/* Six approved buttons: coordinates relative to the 1024×1536 design */
+.mt{left:2.8%;top:60.85%;width:14.0%;height:2.45%}
+.ad{left:19.3%;top:60.85%;width:13.8%;height:2.45%}
+.al{left:35.8%;top:60.85%;width:13.6%;height:2.45%}
+.co{left:51.3%;top:60.85%;width:13.5%;height:2.45%}
+.in{left:67.0%;top:60.85%;width:13.2%;height:2.45%}
+.lp{left:82.6%;top:60.85%;width:14.0%;height:2.45%}
+/* Additional visible calls to action */
+.hero-maint{left:3.0%;top:23.65%;width:22.5%;height:2.95%}
+.hero-wa{left:27.1%;top:23.65%;width:14.4%;height:2.95%}
+.top-maint{left:73.0%;top:1.7%;width:23.7%;height:3.0%}
+.lang{position:fixed;right:12px;top:max(12px,env(safe-area-inset-top));z-index:20;background:rgba(6,8,11,.82);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:4px;display:flex;gap:2px;backdrop-filter:blur(10px)}
+.lang button{border:0;background:transparent;color:#fff;font-weight:800;font-size:11px;padding:8px 10px;border-radius:999px}.lang button.active{background:#f47a20;color:#111}
+.notice{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(120px);z-index:30;background:#111820;color:#fff;border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:12px 16px;font-size:13px;line-height:1.35;box-shadow:0 16px 45px rgba(0,0,0,.45);transition:.25s;max-width:88vw;text-align:center}.notice.show{transform:translateX(-50%) translateY(0)}
+@media(min-width:1030px){.page{box-shadow:0 0 70px rgba(0,0,0,.65)}}
+</style>
+</head>
+<body>
+<div class="lang"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+<main class="page" aria-label="Centro de Divisiones RCO Living">
+<img src="centro-divisiones-oficial.png" alt="RCO Living, divisiones y servicios">
+<a class="hotspot top-maint" data-code="MT" data-name="Mantenimiento" aria-label="Solicitar mantenimiento">Solicitar mantenimiento</a>
+<a class="hotspot hero-maint" data-code="MT" data-name="Mantenimiento" aria-label="Solicitar mantenimiento">Solicitar mantenimiento</a>
+<a class="hotspot hero-wa" href="https://wa.me/5581998991468" aria-label="Contactar por WhatsApp">WhatsApp</a>
+<a class="hotspot mt" data-code="MT" data-name="Mantenimiento" aria-label="Solicitar servicio de mantenimiento">Mantenimiento</a>
+<a class="hotspot ad" data-code="AD" data-name="Administración" aria-label="Solicitar servicio de administración">Administración</a>
+<a class="hotspot al" data-code="AL" data-name="Alquileres" aria-label="Solicitar servicio de alquileres">Alquileres</a>
+<a class="hotspot co" data-code="CO" data-name="Construcción" aria-label="Solicitar servicio de construcción">Construcción</a>
+<a class="hotspot in" data-code="IN" data-name="Inspecciones" aria-label="Solicitar servicio de inspecciones">Inspecciones</a>
+<a class="hotspot lp" data-code="LP" data-name="Limpieza" aria-label="Solicitar servicio de limpieza">Limpieza</a>
+</main>
+<div class="notice" id="notice"></div>
+<script>
+const params=new URLSearchParams(location.search), property=params.get('propiedad');
+const names={
+ es:{MT:'Mantenimiento',AD:'Administración',AL:'Alquileres',CO:'Construcción',IN:'Inspecciones',LP:'Limpieza'},
+ pt:{MT:'Manutenção',AD:'Administração',AL:'Aluguéis',CO:'Construção',IN:'Inspeções',LP:'Limpeza'},
+ en:{MT:'Maintenance',AD:'Administration',AL:'Rentals',CO:'Construction',IN:'Inspections',LP:'Cleaning'}
+};
+function browserLang(){const l=(navigator.language||'pt').toLowerCase();return l.startsWith('pt')?'pt':l.startsWith('es')?'es':'en'}
+let lang=localStorage.getItem('rco_lang')||browserLang();
+function applyLang(l){lang=l;localStorage.setItem('rco_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>applyLang(b.dataset.lang));applyLang(lang);
+document.querySelectorAll('[data-code]').forEach(a=>{
+ a.href='#';
+ a.addEventListener('click',e=>{e.preventDefault();const code=a.dataset.code;const u=new URL('acceso.html',location.href);u.searchParams.set('division',code);u.searchParams.set('divisionName',names[lang][code]);if(property)u.searchParams.set('propiedad',property);location.href=u.pathname+u.search;});
+});
+</script>
+</body></html>
