@@ -1,263 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b0d10" />
-  <title>RCO Living | Solicitud de mantenimiento</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solicitud | RCO Living</title><link rel="stylesheet" href="sistema.css"></head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="RCO Living">
-      <span class="brand-rco"><i></i>RCO</span>
-      <span class="brand-living">LIVING</span>
-      <small>División Mantenimiento</small>
-    </a>
-    <a class="help-link" href="https://wa.me/5581998991468" target="_blank" rel="noopener">
-      Ayuda por WhatsApp
-    </a>
-  </header>
+<header class="topbar">
+  <a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living División Mantenimiento"></a>
+  <div class="top-actions"><a href="https://wa.me/5581998991468">WhatsApp</a></div>
+</header>
+<main class="shell">
+  <a class="back" href="acceso.html">← Cambiar tipo de acceso</a>
+  <span class="eyebrow">Recepción de servicios</span>
+  <h1>Cuéntenos qué necesita</h1>
+  <p class="lead" id="contextLine"></p>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Centro de recepción de servicios</span>
-        <h1>¿Cómo podemos<br><strong>ayudarle hoy?</strong></h1>
-        <p>Solicite mantenimiento en pocos pasos. Nuestro equipo recibirá, organizará y confirmará su visita.</p>
-        <div class="trust-row">
-          <span>✓ Solicitud registrada</span>
-          <span>✓ Seguimiento</span>
-          <span>✓ Atención profesional</span>
-        </div>
+  <section class="panel" id="requestPanel">
+    <form id="requestForm">
+      <h2>1. Servicio</h2>
+      <div class="service-grid">
+        <label class="select-card"><input required type="radio" name="servicio" value="Electricidad"><strong>⚡ Electricidad</strong><small>Fallas, luminarias, tableros e instalaciones.</small></label>
+        <label class="select-card"><input type="radio" name="servicio" value="Plomería"><strong>🚰 Plomería</strong><small>Pérdidas, griferías, sanitarios y cañerías.</small></label>
+        <label class="select-card"><input type="radio" name="servicio" value="Pintura"><strong>🎨 Pintura</strong><small>Interiores, exteriores y superficies.</small></label>
+        <label class="select-card"><input type="radio" name="servicio" value="Reparación general"><strong>🏗️ Reparación general</strong><small>Mantenimiento edilicio integral.</small></label>
       </div>
 
-      <div class="qr-card">
-        <div id="qr" class="qr" aria-label="Código QR"></div>
-        <div>
-          <strong>Escanee para solicitar mantenimiento</strong>
-          <p>También puede compartir este acceso con el propietario, huésped o administrador.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="request-shell" id="solicitud">
-      <div class="progress-wrap">
-        <div class="progress-label">
-          <span id="stepText">Paso 1 de 5</span>
-          <span id="stepName">Servicio</span>
-        </div>
-        <div class="progress"><span id="progressBar"></span></div>
+      <h2 style="margin-top:28px">2. Inconveniente</h2>
+      <div class="form-grid">
+        <label class="wide">Descripción<textarea required name="descripcion" placeholder="Describa el problema y desde cuándo ocurre."></textarea></label>
+        <label class="wide">Fotografías<input type="file" accept="image/*" multiple></label>
       </div>
 
-      <form id="requestForm" novalidate>
-        <section class="step active" data-step="1">
-          <div class="section-heading">
-            <span class="section-number">01</span>
-            <div>
-              <h2>Seleccione el servicio</h2>
-              <p>Elija el rubro que mejor representa el inconveniente.</p>
-            </div>
+      <h2 style="margin-top:28px">3. Agenda</h2>
+      <div class="form-grid">
+        <label>Día solicitado<input required type="date" name="fecha" id="fecha"></label>
+        <fieldset style="border:0;padding:0;margin:0"><legend style="font-size:13px;font-weight:700;margin-bottom:8px">Turno preferido</legend>
+          <div class="shift-grid">
+            <label class="select-card"><input required type="radio" name="turno" value="Mañana"><strong>Mañana</strong><small>08:00 a 12:00</small></label>
+            <label class="select-card"><input type="radio" name="turno" value="Tarde"><strong>Tarde</strong><small>13:00 a 18:00</small></label>
           </div>
+        </fieldset>
+      </div>
 
-          <div class="service-grid">
-            <label class="service-card">
-              <input type="radio" name="service" value="Electricidad" required />
-              <span class="icon">⚡</span>
-              <strong>Electricidad</strong>
-              <small>Instalaciones, fallas, luminarias y tableros.</small>
-            </label>
-            <label class="service-card">
-              <input type="radio" name="service" value="Plomería" />
-              <span class="icon">◉</span>
-              <strong>Plomería</strong>
-              <small>Pérdidas, griferías, sanitarios y cañerías.</small>
-            </label>
-            <label class="service-card">
-              <input type="radio" name="service" value="Pintura" />
-              <span class="icon">▨</span>
-              <strong>Pintura</strong>
-              <small>Interiores, exteriores y reparaciones de superficie.</small>
-            </label>
-            <label class="service-card">
-              <input type="radio" name="service" value="Reparaciones generales" />
-              <span class="icon">⌂</span>
-              <strong>Reparaciones generales</strong>
-              <small>Mantenimiento y reparación edilicia integral.</small>
-            </label>
-          </div>
-        </section>
+      <h2 style="margin-top:28px">4. Prioridad</h2>
+      <div class="priority-grid">
+        <label class="select-card"><input checked type="radio" name="prioridad" value="Programado"><strong>Programado</strong><small>Sin riesgo inmediato.</small></label>
+        <label class="select-card"><input type="radio" name="prioridad" value="Prioritario"><strong>Prioritario</strong><small>Requiere atención rápida.</small></label>
+        <label class="select-card urgent"><input type="radio" name="prioridad" value="Urgente"><strong>Urgente</strong><small>Riesgo eléctrico, pérdida importante o daño creciente.</small></label>
+      </div>
+      <div class="form-actions"><button class="btn primary" type="submit">Registrar solicitud</button></div>
+    </form>
+  </section>
 
-        <section class="step" data-step="2">
-          <div class="section-heading">
-            <span class="section-number">02</span>
-            <div>
-              <h2>Datos de contacto y propiedad</h2>
-              <p>Necesitamos estos datos para confirmar la visita.</p>
-            </div>
-          </div>
+  <section class="panel success" id="successPanel">
+    <span class="eyebrow">Solicitud registrada</span>
+    <h2 style="font-size:36px">Ya estamos organizando su atención.</h2>
+    <p class="lead" style="margin:auto">Su número de seguimiento es:</p>
+    <div class="tracking" id="tracking">RCO-MT-10001</div>
+    <a class="btn primary" id="waBtn" target="_blank">Enviar comprobante por WhatsApp</a>
+  </section>
+</main>
+<footer class="footer"><span>RCO Living · División Mantenimiento</span><span>+55 81 99899 1468</span></footer>
+<script>
+const params=new URLSearchParams(location.search);
+const tipo=params.get('tipo')||'ocasional';
+const prop=params.get('propiedad');
+const cliente=params.get('cliente');
+const nombre=params.get('nombre');
+document.getElementById('contextLine').textContent=tipo==='registrado'
+  ? `Cliente ${cliente||''} · Propiedad ${prop||''}`
+  : `Servicio ocasional para ${nombre||'nuevo solicitante'}.`;
+const f=document.getElementById('fecha'); const d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); f.min=d.toISOString().split('T')[0];
 
-          <div class="form-grid">
-            <label>
-              Nombre y apellido
-              <input name="name" autocomplete="name" required placeholder="Ej.: Rodrigo Orellano" />
-            </label>
-            <label>
-              WhatsApp
-              <input name="phone" inputmode="tel" autocomplete="tel" required placeholder="+55 81 99899 1468" />
-            </label>
-            <label class="wide">
-              Dirección de la propiedad
-              <input name="address" autocomplete="street-address" required placeholder="Calle, número, condominio o edificio" />
-            </label>
-            <label>
-              Unidad / departamento
-              <input name="unit" placeholder="Ej.: Apto. 204" />
-            </label>
-            <label>
-              Código de propiedad
-              <input name="propertyCode" id="propertyCode" placeholder="Ej.: PG-0048" />
-            </label>
-          </div>
-        </section>
-
-        <section class="step" data-step="3">
-          <div class="section-heading">
-            <span class="section-number">03</span>
-            <div>
-              <h2>Cuéntenos qué sucede</h2>
-              <p>Una descripción y fotografías nos ayudan a preparar mejor la visita.</p>
-            </div>
-          </div>
-
-          <label class="wide-label">
-            Descripción del inconveniente
-            <textarea name="description" required maxlength="600" placeholder="Describa el problema, desde cuándo ocurre y cualquier detalle importante."></textarea>
-          </label>
-
-          <label class="upload-box">
-            <input id="photos" name="photos" type="file" accept="image/*" multiple />
-            <span class="upload-icon">＋</span>
-            <strong>Agregar fotografías</strong>
-            <small>Puede seleccionar varias imágenes desde el celular.</small>
-          </label>
-          <div id="photoNames" class="photo-names"></div>
-        </section>
-
-        <section class="step" data-step="4">
-          <div class="section-heading">
-            <span class="section-number">04</span>
-            <div>
-              <h2>Seleccione la visita</h2>
-              <p>Elija una fecha y un turno. RCO Living confirmará la disponibilidad.</p>
-            </div>
-          </div>
-
-          <div class="schedule-grid">
-            <label>
-              Día solicitado
-              <input id="visitDate" name="visitDate" type="date" required />
-            </label>
-
-            <fieldset>
-              <legend>Turno preferido</legend>
-              <div class="shift-grid">
-                <label class="shift-card">
-                  <input type="radio" name="shift" value="Mañana" required />
-                  <span>☀️</span>
-                  <strong>Mañana</strong>
-                  <small>08:00 a 12:00</small>
-                </label>
-                <label class="shift-card">
-                  <input type="radio" name="shift" value="Tarde" />
-                  <span>🌤️</span>
-                  <strong>Tarde</strong>
-                  <small>13:00 a 18:00</small>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-
-          <fieldset class="priority-field">
-            <legend>Prioridad de la solicitud</legend>
-            <div class="priority-grid">
-              <label class="priority normal">
-                <input type="radio" name="priority" value="Programado" checked />
-                <strong>Programado</strong>
-                <small>Mantenimiento sin riesgo inmediato.</small>
-              </label>
-              <label class="priority priority-medium">
-                <input type="radio" name="priority" value="Prioritario" />
-                <strong>Prioritario</strong>
-                <small>Necesita atención rápida.</small>
-              </label>
-              <label class="priority urgent">
-                <input type="radio" name="priority" value="Urgente" />
-                <strong>Urgente</strong>
-                <small>Riesgo o daño que puede agravarse.</small>
-              </label>
-            </div>
-          </fieldset>
-
-          <div id="urgentNotice" class="urgent-notice" hidden>
-            <strong>Solicitud urgente</strong>
-            <p>Utilice esta opción ante pérdida importante de agua, riesgo eléctrico o daño que pueda agravarse inmediatamente.</p>
-          </div>
-        </section>
-
-        <section class="step" data-step="5">
-          <div class="section-heading">
-            <span class="section-number">05</span>
-            <div>
-              <h2>Revise su solicitud</h2>
-              <p>Confirme que la información sea correcta antes de enviarla.</p>
-            </div>
-          </div>
-          <div id="review" class="review-card"></div>
-
-          <label class="consent">
-            <input type="checkbox" name="consent" required />
-            <span>Autorizo a RCO Living a utilizar estos datos para coordinar y dar seguimiento al servicio.</span>
-          </label>
-        </section>
-
-        <div class="form-message" id="formMessage" role="alert"></div>
-
-        <div class="form-actions">
-          <button type="button" id="prevBtn" class="btn secondary" hidden>Volver</button>
-          <button type="button" id="nextBtn" class="btn primary">Continuar</button>
-          <button type="submit" id="submitBtn" class="btn primary" hidden>Enviar solicitud</button>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <div id="successModal" class="modal" hidden>
-    <div class="modal-card">
-      <div class="success-mark">✓</div>
-      <span class="eyebrow">Solicitud registrada</span>
-      <h2>Ya estamos organizando su atención.</h2>
-      <p>Su número de seguimiento es:</p>
-      <div id="trackingNumber" class="tracking-number">RCO-MT-10001</div>
-      <div id="successSummary" class="success-summary"></div>
-      <a id="whatsappConfirm" class="btn primary full" href="#" target="_blank" rel="noopener">
-        Enviar comprobante por WhatsApp
-      </a>
-      <button id="newRequest" class="btn secondary full" type="button">Crear otra solicitud</button>
-      <small>La fecha solicitada quedará confirmada cuando nuestro equipo valide la disponibilidad.</small>
-    </div>
-  </div>
-
-  <footer>
-    <div>
-      <strong>RCO Living</strong>
-      <span>División Mantenimiento</span>
-    </div>
-    <p>La tecnología organiza el servicio. Las personas construyen la confianza.</p>
-    <a href="tel:+5581998991468">+55 81 99899 1468</a>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+document.getElementById('requestForm').onsubmit=e=>{
+  e.preventDefault();
+  let seq=Number(localStorage.getItem('rco_mt_sequence')||'10000')+1;
+  localStorage.setItem('rco_mt_sequence',seq);
+  const id=`RCO-MT-${seq}`;
+  const data=new FormData(e.target);
+  const msg=[
+    'Hola RCO Living. Mi solicitud fue registrada.',
+    `Número: ${id}`,
+    `Tipo: ${tipo}`,
+    cliente?`Cliente: ${cliente}`:'',
+    prop?`Propiedad: ${prop}`:'',
+    nombre?`Solicitante: ${nombre}`:'',
+    `Servicio: ${data.get('servicio')}`,
+    `Fecha: ${data.get('fecha')}`,
+    `Turno: ${data.get('turno')}`,
+    `Prioridad: ${data.get('prioridad')}`
+  ].filter(Boolean).join('\n');
+  document.getElementById('tracking').textContent=id;
+  document.getElementById('waBtn').href='https://wa.me/5581998991468?text='+encodeURIComponent(msg);
+  document.getElementById('requestPanel').style.display='none';
+  document.getElementById('successPanel').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body></html>

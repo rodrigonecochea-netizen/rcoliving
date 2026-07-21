@@ -1,37 +1,14 @@
-# RCO Living v0.2 – Portada + Centro de Recepción
+# RCO Living v0.3 — Prueba de navegación
 
-Esta versión incorpora la portada corporativa oficial antes del sistema.
+Incluye:
+- Portada oficial blindada con botón INGRESAR activo.
+- Mismo logo visual en todas las páginas internas.
+- Elección entre cliente registrado y servicio ocasional.
+- Cliente demo CL-10025 / WhatsApp terminado en 1468.
+- Selección de propiedades registradas.
+- Formulario ocasional.
+- Servicios, fotos, agenda mañana/tarde y urgencia.
+- Número RCO-MT desde 10001.
+- Comprobante por WhatsApp.
 
-## Estructura
-- `index.html`: portada de RCO Living con botón INGRESAR.
-- `solicitud.html`: Centro de Recepción de Servicios.
-- `styles.css`: estilos del sistema.
-- `app.js`: funcionamiento del formulario.
-- `portada-rco-living.png`: imagen visual de la portada aprobada.
-
-## Flujo
-`rcoliving.com`
-→ Portada corporativa
-→ botón INGRESAR
-→ `solicitud.html`
-→ selección del servicio
-→ datos
-→ fotografías
-→ calendario mañana/tarde
-→ prioridad
-→ confirmación RCO-MT-10001
-
-## QR individual por propiedad
-Puede utilizar:
-`https://rcoliving.com/?propiedad=PG-0048`
-
-La portada conservará el código y lo enviará al formulario:
-`solicitud.html?propiedad=PG-0048`
-
-## Publicación
-Suba todos los archivos al repositorio conectado con el dominio RCO Living.
-`index.html` debe quedar en la raíz del repositorio.
-
-## Estado actual
-Es una versión funcional de demostración. Los datos aún se guardan solamente en el navegador.
-La próxima etapa será la base de datos y el panel privado de recepción.
+Esta versión es una prueba visual y funcional. Los datos todavía no están conectados a una base de datos real.

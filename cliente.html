@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cliente registrado | RCO Living</title><link rel="stylesheet" href="sistema.css"></head>
+<body>
+<header class="topbar">
+  <a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living División Mantenimiento"></a>
+  <div class="top-actions"><a href="https://wa.me/5581998991468">WhatsApp</a></div>
+</header>
+<main class="shell">
+  <a class="back" href="acceso.html">← Volver</a>
+  <span class="eyebrow">Cliente registrado</span>
+  <h1>Ingrese sus datos de acceso</h1>
+  <p class="lead">Esta prueba reconoce el cliente de demostración <strong>CL-10025</strong> con WhatsApp terminado en <strong>1468</strong>.</p>
+
+  <section class="panel" id="loginPanel">
+    <div class="form-grid">
+      <label>Número de cliente<input id="clientNumber" placeholder="CL-10025"></label>
+      <label>WhatsApp de verificación<input id="clientPhone" placeholder="+55 81 99899 1468"></label>
+    </div>
+    <div id="loginStatus" class="status"></div>
+    <div class="form-actions"><button class="btn primary" id="verifyBtn">Verificar cliente</button></div>
+    <div class="demo-client"><strong>Acceso de prueba:</strong><br>Cliente: CL-10025<br>WhatsApp: cualquier número que termine en 1468.</div>
+  </section>
+
+  <section class="panel" id="propertiesPanel" hidden>
+    <span class="eyebrow">Bienvenido nuevamente</span>
+    <h2 style="font-size:34px;margin:10px 0 8px">Rodrigo Orellano</h2>
+    <p class="lead">Seleccione la propiedad donde necesita asistencia.</p>
+    <form action="solicitud.html">
+      <input type="hidden" name="tipo" value="registrado">
+      <input type="hidden" name="cliente" value="CL-10025">
+      <div class="property-grid">
+        <label class="select-card"><input required type="radio" name="propiedad" value="PG-0048"><strong>PG-0048 · Apartamento Vista Mar</strong><small>Porto de Galinhas · Apto. 204</small></label>
+        <label class="select-card"><input type="radio" name="propiedad" value="PG-0061"><strong>PG-0061 · Casa Praia</strong><small>Maracaípe · Casa 12</small></label>
+        <label class="select-card"><input type="radio" name="propiedad" value="RC-0017"><strong>RC-0017 · Local Comercial</strong><small>Centro · Loja 03</small></label>
+      </div>
+      <div class="form-actions"><button class="btn primary" type="submit">Continuar</button></div>
+    </form>
+  </section>
+</main>
+<footer class="footer"><span>RCO Living · División Mantenimiento</span><span>+55 81 99899 1468</span></footer>
+<script>
+const btn=document.getElementById('verifyBtn'), status=document.getElementById('loginStatus');
+btn.onclick=()=>{
+  const n=document.getElementById('clientNumber').value.trim().toUpperCase();
+  const p=document.getElementById('clientPhone').value.replace(/\D/g,'');
+  status.style.display='block';
+  if(n==='CL-10025' && p.endsWith('1468')){
+    status.textContent='Cliente verificado correctamente.';
+    document.getElementById('loginPanel').hidden=true;
+    document.getElementById('propertiesPanel').hidden=false;
+  }else{
+    status.textContent='No pudimos verificar los datos. Revise el número de cliente y el WhatsApp.';
+  }
+}
+</script>
+</body></html>

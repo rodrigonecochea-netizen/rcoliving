@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Servicio ocasional | RCO Living</title><link rel="stylesheet" href="sistema.css"></head>
+<body>
+<header class="topbar">
+  <a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living División Mantenimiento"></a>
+  <div class="top-actions"><a href="https://wa.me/5581998991468">WhatsApp</a></div>
+</header>
+<main class="shell">
+  <a class="back" href="acceso.html">← Volver</a>
+  <span class="eyebrow">Servicio ocasional</span>
+  <h1>Datos del solicitante</h1>
+  <p class="lead">Complete sus datos una sola vez. Después continuará con el servicio, fotografías y agenda.</p>
+  <section class="panel">
+    <form action="solicitud.html">
+      <input type="hidden" name="tipo" value="ocasional">
+      <div class="form-grid">
+        <label>Nombre y apellido<input required name="nombre" placeholder="Nombre completo"></label>
+        <label>WhatsApp<input required name="telefono" placeholder="+55 81 99899 1468"></label>
+        <label class="wide">Dirección completa<input required name="direccion" placeholder="Calle, número, condominio o edificio"></label>
+        <label>Unidad / departamento<input name="unidad" placeholder="Ej.: Apto. 204"></label>
+        <label>Correo electrónico<input type="email" name="email" placeholder="correo@ejemplo.com"></label>
+      </div>
+      <div class="form-actions"><button class="btn primary" type="submit">Continuar</button></div>
+    </form>
+  </section>
+</main>
+<footer class="footer"><span>RCO Living · División Mantenimiento</span><span>+55 81 99899 1468</span></footer>
+</body></html>
