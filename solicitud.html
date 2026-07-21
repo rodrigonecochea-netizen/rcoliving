@@ -1,97 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solicitud | RCO Living</title><link rel="stylesheet" href="sistema.css"></head>
-<body>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RCO Living</title><link rel="stylesheet" href="sistema.css"></head><body>
 <header class="topbar">
   <a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living División Mantenimiento"></a>
-  <div class="top-actions"><a href="https://wa.me/5581998991468">WhatsApp</a></div>
-</header>
-<main class="shell">
-  <a class="back" href="acceso.html">← Cambiar tipo de acceso</a>
-  <span class="eyebrow">Recepción de servicios</span>
-  <h1>Cuéntenos qué necesita</h1>
-  <p class="lead" id="contextLine"></p>
-
-  <section class="panel" id="requestPanel">
-    <form id="requestForm">
-      <h2>1. Servicio</h2>
-      <div class="service-grid">
-        <label class="select-card"><input required type="radio" name="servicio" value="Electricidad"><strong>⚡ Electricidad</strong><small>Fallas, luminarias, tableros e instalaciones.</small></label>
-        <label class="select-card"><input type="radio" name="servicio" value="Plomería"><strong>🚰 Plomería</strong><small>Pérdidas, griferías, sanitarios y cañerías.</small></label>
-        <label class="select-card"><input type="radio" name="servicio" value="Pintura"><strong>🎨 Pintura</strong><small>Interiores, exteriores y superficies.</small></label>
-        <label class="select-card"><input type="radio" name="servicio" value="Reparación general"><strong>🏗️ Reparación general</strong><small>Mantenimiento edilicio integral.</small></label>
-      </div>
-
-      <h2 style="margin-top:28px">2. Inconveniente</h2>
-      <div class="form-grid">
-        <label class="wide">Descripción<textarea required name="descripcion" placeholder="Describa el problema y desde cuándo ocurre."></textarea></label>
-        <label class="wide">Fotografías<input type="file" accept="image/*" multiple></label>
-      </div>
-
-      <h2 style="margin-top:28px">3. Agenda</h2>
-      <div class="form-grid">
-        <label>Día solicitado<input required type="date" name="fecha" id="fecha"></label>
-        <fieldset style="border:0;padding:0;margin:0"><legend style="font-size:13px;font-weight:700;margin-bottom:8px">Turno preferido</legend>
-          <div class="shift-grid">
-            <label class="select-card"><input required type="radio" name="turno" value="Mañana"><strong>Mañana</strong><small>08:00 a 12:00</small></label>
-            <label class="select-card"><input type="radio" name="turno" value="Tarde"><strong>Tarde</strong><small>13:00 a 18:00</small></label>
-          </div>
-        </fieldset>
-      </div>
-
-      <h2 style="margin-top:28px">4. Prioridad</h2>
-      <div class="priority-grid">
-        <label class="select-card"><input checked type="radio" name="prioridad" value="Programado"><strong>Programado</strong><small>Sin riesgo inmediato.</small></label>
-        <label class="select-card"><input type="radio" name="prioridad" value="Prioritario"><strong>Prioritario</strong><small>Requiere atención rápida.</small></label>
-        <label class="select-card urgent"><input type="radio" name="prioridad" value="Urgente"><strong>Urgente</strong><small>Riesgo eléctrico, pérdida importante o daño creciente.</small></label>
-      </div>
-      <div class="form-actions"><button class="btn primary" type="submit">Registrar solicitud</button></div>
-    </form>
-  </section>
-
-  <section class="panel success" id="successPanel">
-    <span class="eyebrow">Solicitud registrada</span>
-    <h2 style="font-size:36px">Ya estamos organizando su atención.</h2>
-    <p class="lead" style="margin:auto">Su número de seguimiento es:</p>
-    <div class="tracking" id="tracking">RCO-MT-10001</div>
-    <a class="btn primary" id="waBtn" target="_blank">Enviar comprobante por WhatsApp</a>
-  </section>
-</main>
-<footer class="footer"><span>RCO Living · División Mantenimiento</span><span>+55 81 99899 1468</span></footer>
-<script>
-const params=new URLSearchParams(location.search);
-const tipo=params.get('tipo')||'ocasional';
-const prop=params.get('propiedad');
-const cliente=params.get('cliente');
-const nombre=params.get('nombre');
-document.getElementById('contextLine').textContent=tipo==='registrado'
-  ? `Cliente ${cliente||''} · Propiedad ${prop||''}`
-  : `Servicio ocasional para ${nombre||'nuevo solicitante'}.`;
-const f=document.getElementById('fecha'); const d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); f.min=d.toISOString().split('T')[0];
-
-document.getElementById('requestForm').onsubmit=e=>{
-  e.preventDefault();
-  let seq=Number(localStorage.getItem('rco_mt_sequence')||'10000')+1;
-  localStorage.setItem('rco_mt_sequence',seq);
-  const id=`RCO-MT-${seq}`;
-  const data=new FormData(e.target);
-  const msg=[
-    'Hola RCO Living. Mi solicitud fue registrada.',
-    `Número: ${id}`,
-    `Tipo: ${tipo}`,
-    cliente?`Cliente: ${cliente}`:'',
-    prop?`Propiedad: ${prop}`:'',
-    nombre?`Solicitante: ${nombre}`:'',
-    `Servicio: ${data.get('servicio')}`,
-    `Fecha: ${data.get('fecha')}`,
-    `Turno: ${data.get('turno')}`,
-    `Prioridad: ${data.get('prioridad')}`
-  ].filter(Boolean).join('\n');
-  document.getElementById('tracking').textContent=id;
-  document.getElementById('waBtn').href='https://wa.me/5581998991468?text='+encodeURIComponent(msg);
-  document.getElementById('requestPanel').style.display='none';
-  document.getElementById('successPanel').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-</script>
-</body></html>
+  <div class="top-actions">
+    <div class="lang-switch"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+    <a class="whatsapp" href="https://wa.me/5581998991468">WhatsApp</a>
+  </div>
+</header><main class="shell"><a class="back" href="acceso.html">←</a><span class="eyebrow" data-i18n="reception"></span><h1 data-i18n="tellUs"></h1><p class="lead" id="contextLine"></p>
+<section class="panel" id="requestPanel"><form id="requestForm">
+<h2>1. <span data-i18n="service"></span></h2><div class="service-grid">
+<label class="select-card"><input required type="radio" name="servicio" value="Electricidad"><strong>⚡ Electricidad / Elétrica</strong><small>Instalaciones y fallas.</small></label>
+<label class="select-card"><input type="radio" name="servicio" value="Plomería"><strong>🚰 Plomería / Hidráulica</strong><small>Pérdidas y cañerías.</small></label>
+<label class="select-card"><input type="radio" name="servicio" value="Pintura"><strong>🎨 Pintura</strong><small>Interiores y exteriores.</small></label>
+<label class="select-card"><input type="radio" name="servicio" value="Reparación general"><strong>🏗️ Reparación general</strong><small>Mantenimiento edilicio.</small></label></div>
+<h2 style="margin-top:28px">2. <span data-i18n="issue"></span></h2><div class="form-grid"><label class="wide"><span data-i18n="description"></span><textarea required name="descripcion"></textarea></label><label class="wide"><span data-i18n="photos"></span><input type="file" accept="image/*" multiple></label></div>
+<h2 style="margin-top:28px">3. <span data-i18n="agenda"></span></h2><div class="form-grid"><label><span data-i18n="date"></span><input required type="date" name="fecha" id="fecha"></label>
+<fieldset style="border:0;padding:0;margin:0"><legend style="font-size:13px;font-weight:700;margin-bottom:8px" data-i18n="shift"></legend><div class="shift-grid"><label class="select-card"><input required type="radio" name="turno" value="Mañana"><strong data-i18n="morning"></strong><small>08:00–12:00</small></label><label class="select-card"><input type="radio" name="turno" value="Tarde"><strong data-i18n="afternoon"></strong><small>13:00–18:00</small></label></div></fieldset></div>
+<h2 style="margin-top:28px">4. <span data-i18n="priority"></span></h2><div class="priority-grid"><label class="select-card"><input checked type="radio" name="prioridad" value="Programado"><strong data-i18n="scheduled"></strong><small data-i18n="noRisk"></small></label><label class="select-card"><input type="radio" name="prioridad" value="Prioritario"><strong data-i18n="priorityFast"></strong><small data-i18n="fastAttention"></small></label><label class="select-card urgent"><input type="radio" name="prioridad" value="Urgente"><strong data-i18n="urgent"></strong><small data-i18n="risk"></small></label></div>
+<div class="form-actions"><button class="btn primary" data-i18n="submit"></button></div></form></section>
+<section class="panel success" id="successPanel"><span class="eyebrow" data-i18n="requestSaved"></span><h2 style="font-size:36px" data-i18n="organizing"></h2><p class="lead" style="margin:auto" data-i18n="trackingText"></p><div class="tracking" id="tracking"></div><a class="btn primary" id="waBtn" target="_blank" data-i18n="sendWA"></a></section></main><footer class="footer"><span>RCO Living · División Mantenimiento</span><span>+55 81 99899 1468</span></footer>
+<script src="i18n.js"></script><script>RCO_I18N.init();const p=new URLSearchParams(location.search),tipo=p.get('tipo')||'ocasional',prop=p.get('propiedad'),cliente=p.get('cliente'),nombre=p.get('nombre');document.getElementById('contextLine').textContent=tipo==='registrado'?`${cliente||''} · ${prop||''}`:(nombre||'');const f=document.getElementById('fecha'),d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());f.min=d.toISOString().split('T')[0];document.getElementById('requestForm').onsubmit=e=>{e.preventDefault();let seq=Number(localStorage.getItem('rco_mt_sequence')||'10000')+1;localStorage.setItem('rco_mt_sequence',seq);const id=`RCO-MT-${seq}`,fd=new FormData(e.target);const item={id,created:new Date().toISOString(),tipo,cliente:cliente||'',propiedad:prop||'',nombre:nombre||'',servicio:fd.get('servicio'),fecha:fd.get('fecha'),turno:fd.get('turno'),prioridad:fd.get('prioridad'),estado:'Recibida'};const list=JSON.parse(localStorage.getItem('rco_requests')||'[]');list.unshift(item);localStorage.setItem('rco_requests',JSON.stringify(list));document.getElementById('tracking').textContent=id;const msg=Object.entries(item).map(([k,v])=>`${k}: ${v}`).join('\n');document.getElementById('waBtn').href='https://wa.me/5581998991468?text='+encodeURIComponent(msg);document.getElementById('requestPanel').style.display='none';document.getElementById('successPanel').style.display='block';window.scrollTo({top:0,behavior:'smooth'});};</script></body></html>

@@ -1,14 +1,23 @@
-# RCO Living v0.3 — Prueba de navegación
+# RCO Living OS v0.4 — Global Control
 
-Incluye:
-- Portada oficial blindada con botón INGRESAR activo.
-- Mismo logo visual en todas las páginas internas.
-- Elección entre cliente registrado y servicio ocasional.
-- Cliente demo CL-10025 / WhatsApp terminado en 1468.
-- Selección de propiedades registradas.
-- Formulario ocasional.
-- Servicios, fotos, agenda mañana/tarde y urgencia.
-- Número RCO-MT desde 10001.
+Prototipo funcional estático con:
+- Portada oficial blindada.
+- Selector PT / ES / EN y detección automática.
+- Idioma persistente en todas las pantallas.
+- Cliente registrado y servicio ocasional.
+- Códigos CL, PG, TEC, VH, EQ, RCO-MT, PRE y FAC.
+- Expediente digital de propiedades.
+- Centro de Control demostrativo.
+- Solicitudes guardadas temporalmente en localStorage.
+- Alertas urgentes.
 - Comprobante por WhatsApp.
 
-Esta versión es una prueba visual y funcional. Los datos todavía no están conectados a una base de datos real.
+## Prueba
+Cliente demo:
+- CL-10025
+- WhatsApp terminado en 1468
+
+El botón circular "R" en la pantalla de acceso abre el Centro de Control.
+
+## Importante
+Es una demostración front-end. Todavía no utiliza una base de datos real, autenticación segura ni almacenamiento permanente de fotografías.
