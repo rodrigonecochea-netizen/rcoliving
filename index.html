@@ -15,7 +15,7 @@
         <button data-lang="es">ES</button>
         <button data-lang="en">EN</button>
       </div>
-      <a class="enter-hit" href="acceso.html" data-i18n-aria="enterAria">
+      <a class="enter-hit" href="divisiones.html" data-i18n-aria="enterAria">
         <span data-i18n="enter">INGRESAR</span>
       </a>
     </section>
@@ -25,7 +25,7 @@
     RCO_I18N.init();
     const link = document.querySelector('.enter-hit');
     const params = new URLSearchParams(location.search);
-    if (params.get('propiedad')) link.href = `acceso.html?propiedad=${encodeURIComponent(params.get('propiedad'))}`;
+    if (params.get('propiedad')) link.href = `divisiones.html?propiedad=${encodeURIComponent(params.get('propiedad'))}`;
   </script>
 </body>
 </html>
