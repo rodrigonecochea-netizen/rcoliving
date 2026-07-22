@@ -1,7 +1,16 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Centro de Operaciones | RCO Living OS</title><link rel="stylesheet" href="sistema.css"></head><body>
-<header class="topbar"><a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living"></a><div class="top-actions"><div class="lang-switch"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div><a class="whatsapp" href="https://wa.me/5581998991468">WhatsApp</a></div></header>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Centro de Operaciones | RCO Living OS</title><link rel="stylesheet" href="sistema.css"><script>
+if(sessionStorage.getItem('rco_admin_session')!=='active'){
+  location.replace('login.html');
+}
+</script>
+</head><body>
+<header class="topbar"><a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living"></a><div class="top-actions"><div class="lang-switch"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div><div class="user-menu">
+  <span class="user-chip">Rodrigo · Administrador</span>
+  <button class="logout-btn" id="logoutBtn">Salir</button>
+</div></div></header>
 <div class="ops-layout"><aside class="ops-sidebar"><nav class="ops-nav"><button class="active" data-section="dashboard">⌂ Resumen</button><button data-section="requests">▤ Solicitudes</button><button data-section="agenda">▦ Agenda</button><button data-section="properties">⌂ Propiedades</button><button data-section="technicians">⚒ Técnicos</button><button data-section="activity">◷ Actividad</button></nav></aside>
 <main class="ops-main">
+<div class="session-warning">🔒 Sesión privada de demostración activa. Los datos todavía se guardan únicamente en este navegador.</div>
 <section class="ops-section active" id="dashboard"><div class="ops-hello"><div><span class="eyebrow">RCO Living OS · Centro de Operaciones</span><h1>Buenos días, Rodrigo.</h1><p class="lead" id="dailySummary">Todo listo para comenzar la jornada.</p></div><div class="system-pills"><span class="system-pill online">● Sitio online</span><span class="system-pill online">● Base local activa</span><span class="system-pill">WhatsApp preparado</span><span class="system-pill" id="lastSync">Actualizado ahora</span></div></div>
 <div class="ops-kpis"><div class="ops-kpi orange"><span>Solicitudes activas</span><strong id="kpiOpen">0</strong></div><div class="ops-kpi alert"><span>Urgencias</span><strong id="kpiUrgent">0</strong></div><div class="ops-kpi good"><span>Técnicos disponibles</span><strong>3</strong></div><div class="ops-kpi"><span>Propiedades</span><strong>3</strong></div><div class="ops-kpi"><span>Finalizadas</span><strong id="kpiDone">0</strong></div></div>
 <div class="ops-grid"><article class="ops-card"><div class="ops-card-head"><h2>Solicitudes prioritarias</h2><button class="filter-btn" data-open-section="requests">Ver todas</button></div><div class="request-list" id="priorityList"></div></article><div><article class="ops-card"><div class="ops-card-head"><h2>Actividad reciente</h2></div><div class="activity" id="recentActivity"></div></article><article class="ops-card ia-card" style="margin-top:18px"><span class="eyebrow">Centro IA</span><h2 style="margin-top:8px">Coordinador operativo</h2><p class="lead" style="font-size:14px">Preparado para resumir urgencias, recomendar técnicos y organizar la jornada.</p><button class="btn secondary" disabled>Próximamente</button></article></div></div>
@@ -13,4 +22,12 @@
 <section class="ops-section" id="activity"><span class="eyebrow">Bitácora</span><h1>Actividad del sistema</h1><article class="ops-card"><div class="activity" id="fullActivity"></div></article></section>
 </main></div>
 <div class="drawer" id="requestDrawer" hidden><div class="drawer-panel"><div class="drawer-head"><div><span class="eyebrow">Orden de servicio</span><h2 id="drawerId"></h2></div><button class="drawer-close" id="drawerClose">Cerrar</button></div><div class="drawer-details" id="drawerDetails"></div><div class="drawer-selects"><label>Estado<select id="drawerStatus"><option>Recibida</option><option>Confirmada</option><option>Técnico asignado</option><option>En camino</option><option>En ejecución</option><option>Finalizada</option></select></label><label>Técnico asignado<select id="drawerTech"><option value="">Sin asignar</option><option>Carlos · TEC-0015</option><option>João · TEC-0021</option><option>Marcos · TEC-0028</option><option>Ana · TEC-0034</option></select></label></div><button class="btn primary save-change" id="saveRequest">Guardar cambios</button></div></div>
-<script src="i18n.js"></script><script src="control.js"></script></body></html>
+<script src="i18n.js"></script><script src="control.js"></script>
+<script>
+document.getElementById('logoutBtn').addEventListener('click',()=>{
+  sessionStorage.removeItem('rco_admin_session');
+  sessionStorage.removeItem('rco_admin_name');
+  sessionStorage.removeItem('rco_admin_login');
+  location.replace('login.html');
+});
+</script></body></html>

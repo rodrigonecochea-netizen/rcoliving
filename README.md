@@ -1,7 +1,30 @@
-# RCO Living OS v0.7 — Centro de Operaciones
+# RCO Living OS v0.8 — Acceso Privado
 
-Incluye panel administrativo de prueba con resumen diario, solicitudes, filtros, urgencias, asignación de técnicos, cambios de estado, agenda, propiedades, recursos y bitácora.
+## Nueva función
+El Centro de Operaciones ahora tiene una puerta de acceso separada del sitio público.
 
-Acceso: botón circular “R” en la pantalla de divisiones o `control.html`.
+### Acceso de prueba
+- Usuario: `administrador`
+- Contraseña: `RCO2026`
 
-Esta versión usa localStorage. La información vive únicamente en el navegador de prueba; todavía no hay base de datos ni autenticación segura.
+### Flujo
+Sitio público → botón circular R → login privado → Centro de Operaciones → cerrar sesión.
+
+## Incluye
+- Pantalla corporativa de acceso.
+- Sesión temporal durante la navegación.
+- Bloqueo de acceso directo a `control.html`.
+- Identificación del administrador.
+- Botón para cerrar sesión.
+- Conserva todas las funciones de la v0.7.
+
+## Importante
+Esta es una protección de demostración ejecutada en el navegador. No debe considerarse seguridad real porque el usuario y la contraseña forman parte de los archivos públicos de GitHub Pages.
+
+Para operar con clientes reales será necesario:
+- autenticación en servidor;
+- contraseñas cifradas;
+- permisos por usuario;
+- base de datos real;
+- registro de accesos;
+- recuperación segura de contraseña.

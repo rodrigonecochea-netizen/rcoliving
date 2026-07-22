@@ -1,3 +1,4 @@
+if(sessionStorage.getItem('rco_admin_session')!=='active'){location.replace('login.html');}
 (() => {
 if(window.RCO_I18N)RCO_I18N.init();
 const DEMO=[

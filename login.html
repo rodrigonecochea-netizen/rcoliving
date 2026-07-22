@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a0d">
+<title>Acceso privado | RCO Living OS</title>
+<link rel="stylesheet" href="sistema.css">
+</head>
+<body class="login-body">
+<main class="login-shell">
+  <div class="login-brand"><img src="logo-rco-living.png" alt="RCO Living"></div>
+  <span class="eyebrow">Área privada</span>
+  <h1>Centro de Operaciones</h1>
+  <p class="lead">Acceso reservado para administración y coordinación de RCO Living.</p>
+
+  <form class="login-form" id="loginForm">
+    <label>Usuario
+      <input id="username" autocomplete="username" placeholder="administrador" required>
+    </label>
+    <label>Contraseña
+      <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+    </label>
+    <div class="login-error" id="loginError">Usuario o contraseña incorrectos.</div>
+    <button class="btn primary" type="submit">INGRESAR AL PANEL</button>
+  </form>
+
+  <div class="login-actions">
+    <a href="divisiones.html">← Volver al sitio</a>
+    <span style="color:var(--muted);font-size:11px">RCO Living OS v0.8</span>
+  </div>
+
+  <div class="login-info">
+    <strong>Acceso de demostración</strong><br>
+    Usuario: <code>administrador</code><br>
+    Contraseña: <code>RCO2026</code><br><br>
+    Esta protección es únicamente para pruebas visuales. La versión operativa usará autenticación y base de datos reales.
+  </div>
+</main>
+<script>
+if(sessionStorage.getItem('rco_admin_session')==='active'){
+  location.replace('control.html');
+}
+document.getElementById('loginForm').addEventListener('submit',event=>{
+  event.preventDefault();
+  const user=document.getElementById('username').value.trim().toLowerCase();
+  const password=document.getElementById('password').value;
+  if(user==='administrador' && password==='RCO2026'){
+    sessionStorage.setItem('rco_admin_session','active');
+    sessionStorage.setItem('rco_admin_name','Rodrigo');
+    sessionStorage.setItem('rco_admin_login',new Date().toISOString());
+    location.replace('control.html');
+  }else{
+    document.getElementById('loginError').style.display='block';
+  }
+});
+</script>
+</body>
+</html>
