@@ -1,7 +1,7 @@
-# RCO Living OS v0.6 — Portada Visual Activa
+# RCO Living OS v0.7 — Centro de Operaciones
 
-Prueba funcional que conserva exactamente la portada visual aprobada.
+Incluye panel administrativo de prueba con resumen diario, solicitudes, filtros, urgencias, asignación de técnicos, cambios de estado, agenda, propiedades, recursos y bitácora.
 
-Flujo: Portada de ingreso → Diseño completo RCO Living → botones activos por división → cliente registrado/ocasional → formulario → agenda → confirmación.
+Acceso: botón circular “R” en la pantalla de divisiones o `control.html`.
 
-La propiedad del QR, el idioma y la división elegida continúan durante todo el recorrido.
+Esta versión usa localStorage. La información vive únicamente en el navegador de prueba; todavía no hay base de datos ni autenticación segura.
