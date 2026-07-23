@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="description" content="RCO Living, división operativa de RCO & Asociados para mantenimiento, administración y cuidado integral de propiedades.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#05070a">
@@ -28,6 +29,7 @@
 .notice{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(120px);z-index:30;background:#111820;color:#fff;border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:12px 16px;font-size:13px;line-height:1.35;box-shadow:0 16px 45px rgba(0,0,0,.45);transition:.25s;max-width:88vw;text-align:center}.notice.show{transform:translateX(-50%) translateY(0)}
 @media(min-width:1030px){.page{box-shadow:0 0 70px rgba(0,0,0,.65)}}
 </style>
+<link rel="icon" href="logo-rco-living.png">
 </head>
 <body>
 <div class="lang"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
@@ -60,4 +62,5 @@ document.querySelectorAll('[data-code]').forEach(a=>{
  a.addEventListener('click',e=>{e.preventDefault();const code=a.dataset.code;const u=new URL('acceso.html',location.href);u.searchParams.set('division',code);u.searchParams.set('divisionName',names[lang][code]);if(property)u.searchParams.set('propiedad',property);location.href=u.pathname+u.search;});
 });
 </script>
-<a class="panel-access" href="login.html" aria-label="Centro de Operaciones RCO">R</a></body></html>
+<a class="panel-access" href="login.html" aria-label="Centro de Operaciones RCO">R</a><script src="app.js"></script>
+</body></html>

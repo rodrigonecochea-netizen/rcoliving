@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RCO Living</title><link rel="stylesheet" href="sistema.css"></head><body>
+<!DOCTYPE html><html lang="es"><head>
+<meta name="description" content="RCO Living, división operativa de RCO & Asociados para mantenimiento, administración y cuidado integral de propiedades."><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RCO Living</title><link rel="stylesheet" href="sistema.css"><link rel="icon" href="logo-rco-living.png">
+</head><body>
 <header class="topbar">
   <a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living División Mantenimiento"></a>
   <div class="top-actions">
@@ -21,4 +23,5 @@ const q=new URLSearchParams(location.search),division=q.get('division')||'MT',di
 const reg=document.getElementById('registeredLink'),occ=document.querySelector('a[href="ocasional.html"]');
 [reg,occ].forEach(link=>{const u=new URL(link.href,location.href);u.searchParams.set('division',division);u.searchParams.set('divisionName',divisionName);if(property)u.searchParams.set('propiedad',property);link.href=u.pathname+u.search;});
 </script>
+<script src="app.js"></script>
 </body></html>

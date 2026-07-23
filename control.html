@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Centro de Operaciones | RCO Living OS</title><link rel="stylesheet" href="sistema.css"><script>
+<!DOCTYPE html><html lang="es"><head>
+<meta name="description" content="RCO Living, división operativa de RCO & Asociados para mantenimiento, administración y cuidado integral de propiedades."><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Centro de Operaciones | RCO Living OS</title><link rel="stylesheet" href="sistema.css"><script>
 if(sessionStorage.getItem('rco_admin_session')!=='active'){
   location.replace('login.html');
 }
 </script>
+<link rel="icon" href="logo-rco-living.png">
 </head><body>
 <header class="topbar"><a href="index.html"><img class="logo" src="logo-rco-living.png" alt="RCO Living"></a><div class="top-actions"><div class="lang-switch"><button data-lang="pt">PT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div><div class="user-menu">
-  <a class="user-chip" href="core.html">RCO Core</a><span class="user-chip">Rodrigo · Administrador</span>
+  <a class="user-chip" href="media.html">Multimedia</a><a class="user-chip" href="core.html">RCO Core</a><span class="user-chip">Producción preparada</span><span class="user-chip">Rodrigo · Administrador</span>
   <button class="logout-btn" id="logoutBtn">Salir</button>
 </div></div></header>
 <div class="ops-layout"><aside class="ops-sidebar"><nav class="ops-nav"><button class="active" data-section="dashboard">⌂ Resumen</button><button data-section="requests">▤ Solicitudes</button><button data-section="agenda">▦ Agenda</button><button data-section="properties">⌂ Propiedades</button><button data-section="technicians">⚒ Técnicos</button><button data-section="activity">◷ Actividad</button></nav></aside>
@@ -30,4 +32,5 @@ document.getElementById('logoutBtn').addEventListener('click',()=>{
   sessionStorage.removeItem('rco_admin_login');
   location.replace('login.html');
 });
-</script></body></html>
+</script><script src="app.js"></script>
+</body></html>

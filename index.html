@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="description" content="RCO Living, división operativa de RCO & Asociados para mantenimiento, administración y cuidado integral de propiedades.">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080a0d">
   <title>RCO Living</title>
   <link rel="stylesheet" href="sistema.css">
+<link rel="icon" href="logo-rco-living.png">
+<link rel="manifest" href="site.webmanifest">
 </head>
 <body class="landing-body">
   <main class="cover">
@@ -27,5 +30,6 @@
     const params = new URLSearchParams(location.search);
     if (params.get('propiedad')) link.href = `divisiones.html?propiedad=${encodeURIComponent(params.get('propiedad'))}`;
   </script>
+<script src="app.js"></script>
 </body>
 </html>
